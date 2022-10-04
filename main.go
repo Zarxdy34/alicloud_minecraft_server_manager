@@ -3,12 +3,18 @@
 package main
 
 import (
+	"github.com/Zarxdy34/alicloud_minecraft_server_manager/src/biz"
 	"github.com/cloudwego/hertz/pkg/app/server"
 )
+
+func Init() {
+	biz.InitConfig()
+}
 
 func main() {
 	h := server.Default()
 
+	Init()
 	register(h)
 	h.Spin()
 }

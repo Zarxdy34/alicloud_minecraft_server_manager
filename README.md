@@ -1,8 +1,11 @@
 # alicloud_minecraft_server_manager
 
-# Put your ak/sk config at ./conf/config.json
+
+## 1. Put your access key config at ./conf/config.json
 
     {
         "AccessKeyId": "",
         "AccessKeySecret": ""
     }
+
+## 2. Run build.sh, then run.sh
