@@ -15,7 +15,7 @@ jobs:
     - run: echo secret is ${{ secrets.ACTION_TOKEN }}
     - uses: wangyoucao577/go-release-action@v1.32
       with:
-        github_token: ${{ secrets.ACTION_TOKEN }}
+        github_token: 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
         goos: linux
         goarch: amd64
         goversion: 1.18
