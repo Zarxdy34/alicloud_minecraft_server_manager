@@ -1,16 +1,17 @@
-name: Go
+name: Go Release
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
+    tags:
+      - '*'
+      
 jobs:
-  goreleaser:
+  build_release:
+    name: build_release
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+    
+      - name: checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
@@ -20,14 +21,33 @@ jobs:
         with:
           go-version: '1.18'
           architecture: x64
-      
-      - name: Build
+          
+      - name: Build Artifacts
         run: |
           mkdir output
-          go build -o output/alicloud_minecraft_server_manager
-
-          
-      - uses: actions/upload-artifact@v3
+          go build -o output/alicloud_minecraft_server_manager_linux_amd64
+          tar -czvf output/alicloud_minecraft_server_manager_linux_amd64.tar.gz output/alicloud_minecraft_server_manager_linux_amd64
+          rm output/alicloud_minecraft_server_manager_linux_amd64
+        
+      - name: release
+        uses: actions/create-release@v1
+        id: create_release
         with:
-          name: alicloud_minecraft_server_manager
-          path: output/alicloud_minecraft_server_manager
+          draft: false
+          prerelease: false
+          release_name: ${{ github.ref }}
+          tag_name: ${{ github.ref }}
+          body_path: CHANGELOG.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
+          
+      - name: upload linux artifact
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./output/alicloud_minecraft_server_manager_linux_amd64
+          asset_name: alicloud_minecraft_server_manager_linux_amd64
+          asset_content_type: application/gzip
+          
