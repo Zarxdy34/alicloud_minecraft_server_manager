@@ -2,8 +2,9 @@ name: Go Release
 
 on:
   push:
-    tags:
-      - '*'
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
       
 jobs:
   build_release:
