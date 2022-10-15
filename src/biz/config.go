@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/Zarxdy34/alicloud_minecraft_server_manager/src/model"
+	"github.com/zarxdy34/alicloud_minecraft_server_manager/src/model"
 )
 
 var ServerConf *model.ServerConfig

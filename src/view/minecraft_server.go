@@ -3,11 +3,11 @@ package view
 import (
 	"context"
 
-	"github.com/Zarxdy34/alicloud_minecraft_server_manager/src/biz"
-	"github.com/Zarxdy34/alicloud_minecraft_server_manager/src/common/utils"
-	"github.com/Zarxdy34/alicloud_minecraft_server_manager/src/model"
 	"github.com/bytedance/gopkg/util/logger"
 	"github.com/cloudwego/hertz/pkg/app"
+	"github.com/zarxdy34/alicloud_minecraft_server_manager/src/biz"
+	"github.com/zarxdy34/alicloud_minecraft_server_manager/src/common/utils"
+	"github.com/zarxdy34/alicloud_minecraft_server_manager/src/model"
 )
 
 // MinecraftServerManage

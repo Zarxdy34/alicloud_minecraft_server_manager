@@ -1,4 +1,4 @@
-module github.com/Zarxdy34/alicloud_minecraft_server_manager
+module github.com/zarxdy34/alicloud_minecraft_server_manager
 
 go 1.18
 

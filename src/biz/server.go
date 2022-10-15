@@ -4,13 +4,13 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/Zarxdy34/alicloud_minecraft_server_manager/src/common/base_handler"
-	"github.com/Zarxdy34/alicloud_minecraft_server_manager/src/common/consts"
-	"github.com/Zarxdy34/alicloud_minecraft_server_manager/src/common/utils"
-	"github.com/Zarxdy34/alicloud_minecraft_server_manager/src/model"
 	"github.com/aliyun/alibaba-cloud-sdk-go/sdk"
 	"github.com/aliyun/alibaba-cloud-sdk-go/sdk/auth/credentials"
 	ecs "github.com/aliyun/alibaba-cloud-sdk-go/services/ecs"
+	"github.com/zarxdy34/alicloud_minecraft_server_manager/src/common/base_handler"
+	"github.com/zarxdy34/alicloud_minecraft_server_manager/src/common/consts"
+	"github.com/zarxdy34/alicloud_minecraft_server_manager/src/common/utils"
+	"github.com/zarxdy34/alicloud_minecraft_server_manager/src/model"
 )
 
 type MinecraftServerManager struct {

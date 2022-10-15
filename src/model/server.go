@@ -1,6 +1,6 @@
 package model
 
-import "github.com/Zarxdy34/alicloud_minecraft_server_manager/src/common/consts"
+import "github.com/zarxdy34/alicloud_minecraft_server_manager/src/common/consts"
 
 type MinecraftServerRequest struct {
 	Type       consts.ActionType `json:"type"`
