@@ -1,1 +1,1 @@
-./output run
+./output/output

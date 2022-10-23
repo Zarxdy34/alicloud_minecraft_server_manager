@@ -5,10 +5,13 @@ package main
 import (
 	"github.com/cloudwego/hertz/pkg/app/server"
 	"github.com/zarxdy34/alicloud_minecraft_server_manager/src/biz"
+	"github.com/zarxdy34/alicloud_minecraft_server_manager/src/common/logger"
 )
 
 func Init() {
 	biz.InitConfig()
+	logger.InitLogger()
+	biz.InitResourceManager()
 }
 
 func main() {

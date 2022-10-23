@@ -2,8 +2,9 @@ package base_handler
 
 import (
 	"context"
+	"fmt"
 
-	"github.com/bytedance/gopkg/util/logger"
+	"github.com/google/logger"
 )
 
 type BaseHandler struct {
@@ -27,17 +28,17 @@ func (h *BaseHandler) GetName() string {
 }
 
 func (h *BaseHandler) LogInfo(format string, args ...interface{}) {
-	logger.CtxInfof(h.ctx, format, args)
+	logger.InfoDepth(1, fmt.Sprintf("["+h.GetName()+"]"+format, args...))
 }
 
 func (h *BaseHandler) LogWarn(format string, args ...interface{}) {
-	logger.CtxInfof(h.ctx, format, args)
+	logger.WarningDepth(1, fmt.Sprintf("["+h.GetName()+"]"+format, args...))
 }
 
 func (h *BaseHandler) LogError(format string, args ...interface{}) {
-	logger.CtxInfof(h.ctx, format, args)
+	logger.ErrorDepth(1, fmt.Sprintf("["+h.GetName()+"]"+format, args...))
 }
 
-func (h *BaseHandler) LogDebug(format string, args ...interface{}) {
-	logger.CtxInfof(h.ctx, format, args)
+func (h *BaseHandler) LogFatal(format string, args ...interface{}) {
+	logger.FatalDepth(1, fmt.Sprintf("["+h.GetName()+"]"+format, args...))
 }
