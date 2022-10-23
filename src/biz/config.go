@@ -25,7 +25,7 @@ func readConfig(safeMode bool) {
 
 	err = json.Unmarshal(b, &conf)
 	if err != nil {
-		errMsg := fmt.Sprintf("Load config file failed, please check your config file")
+		errMsg := fmt.Sprintf("Load config file failed, please check your config file, err = %v", err)
 		if !safeMode {
 			panic(errMsg)
 		} else {

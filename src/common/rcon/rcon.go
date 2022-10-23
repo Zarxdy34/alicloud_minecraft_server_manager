@@ -18,7 +18,7 @@ func SaySomething(server *model.MCServerInfo, msg string) error {
 	cmd := baseCommand(server)
 	cmd = append(cmd, fmt.Sprintf("say %s", msg))
 	resp, err := exec.Command("mcrcon", cmd...).Output()
-	logger.Infof("Exec command %s, resp = %v", strings.Join(cmd, " "), resp)
+	logger.Infof("Exec command %s, resp = %v", strings.Join(cmd, " "), string(resp))
 	if err != nil {
 		return fmt.Errorf("Run mcron failed, err = %v", err)
 	}
