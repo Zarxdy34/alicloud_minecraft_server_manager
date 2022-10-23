@@ -32,7 +32,7 @@ func (h *resourceManager) Loop() {
 		}
 		go func(serverID int64, server *model.MCServerInfo) {
 			for {
-				time.Sleep(time.Duration(server.ShutdownAfterNoPlayerCheckIntervalSecond))
+				time.Sleep(time.Second * time.Duration(server.ShutdownAfterNoPlayerCheckIntervalSecond))
 				resp, err := NewMinecraftServerManager(h.GetContext(), &model.MinecraftServerRequest{
 					Type:     consts.QueryServer,
 					ServerID: &serverID,
