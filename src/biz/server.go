@@ -160,6 +160,7 @@ func (h *MinecraftServerManager) QueryServer() error {
 		h.resp.ServerStatus.ServerOnline = false
 		return nil
 	}
+	h.resp.ServerStatus.ServerOnline = true
 
 	h.resp.ServerStatus.OnlinePlayerNumber = int64(pingResp.PlayerCount.Online)
 	for _, player := range pingResp.Sample {
