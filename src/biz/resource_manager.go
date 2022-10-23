@@ -11,14 +11,15 @@ import (
 
 type resourceManager struct {
 	*base_handler.BaseHandler
-	NoPlayerTimeCount []int64
+	NoPlayerTimeCount map[int64]int64
 }
 
 var rsm *resourceManager
 
 func InitResourceManager() {
 	rsm = &resourceManager{
-		BaseHandler: base_handler.New(context.Background(), "ResourceManager"),
+		BaseHandler:       base_handler.New(context.Background(), "ResourceManager"),
+		NoPlayerTimeCount: make(map[int64]int64),
 	}
 	rsm.Loop()
 }
