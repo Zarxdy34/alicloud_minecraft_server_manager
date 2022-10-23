@@ -16,7 +16,7 @@ func baseCommand(server *model.MCServerInfo) []string {
 
 func SaySomething(server *model.MCServerInfo, msg string) error {
 	cmd := baseCommand(server)
-	cmd = append(cmd, fmt.Sprintf("\"say %s\"", msg))
+	cmd = append(cmd, fmt.Sprintf("say %s", msg))
 	resp, err := exec.Command("mcrcon", cmd...).Output()
 	logger.Infof("Exec command %s, resp = %v", strings.Join(cmd, " "), resp)
 	if err != nil {
