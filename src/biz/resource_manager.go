@@ -43,7 +43,7 @@ func (h *resourceManager) Loop() {
 					continue
 				}
 				serverStatus := resp.ServerStatus
-				if !serverStatus.InstanceOnline || !serverStatus.ServerOnline || serverStatus.OnlinePlayerNumber == 0 {
+				if !serverStatus.InstanceOnline || !serverStatus.ServerOnline || serverStatus.OnlinePlayerNumber > 0 {
 					h.NoPlayerTimeCount[serverID] = 0
 					continue
 				}
